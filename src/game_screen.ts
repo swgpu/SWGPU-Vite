@@ -1,5 +1,6 @@
 import {
   gfx2TextureManager,
+  gfx2Manager,
   Gfx2SpriteJSS,
   Tween,
   Screen,
@@ -28,13 +29,18 @@ class GameScreen extends Screen {
 
   update(ts: number) {
     this.logo.update(ts);
-    this.animation.update(ts);
-
     this.logo.setPosition(this.animation.get(0), this.animation.get(1));
+    this.animation.update(ts);    
   }
 
   draw() {
     this.logo.draw();
+  }
+
+  render() {
+    gfx2Manager.beginRender();
+    gfx2Manager.render();
+    gfx2Manager.endRender();
   }
 }
 

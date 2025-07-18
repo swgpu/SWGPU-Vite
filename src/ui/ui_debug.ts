@@ -7,25 +7,9 @@ class UIDebug extends UIWidget {
       className: 'UIDebug',
       template: `
       <div>
-        <span class="UIDebug-enabled">Debug enabled: <span>
-        <button class="js-debug-toggle">Toggle</button>
+        <span class="UIDebug-enabled">Welcome on our Quick Starter.</br>Start from here and write your own game.<span>
       </div>`
     });
-
-    const btn = this.node.querySelector('.js-debug-toggle')!;
-    btn.addEventListener('click', this.handleDebugToggle.bind(this));
-  }
-
-  update() {
-    const debugBtn = this.node.querySelector('.js-debug-toggle')!;
-    const debugEnabled = localStorage.getItem('debugEnabled');
-    debugBtn.textContent = debugEnabled == '0' ? 'false' : 'true';
-  }
-
-  handleDebugToggle() {
-    const value = localStorage.getItem('debugEnabled');
-    localStorage.setItem('debugEnabled', value != '0' ? '0' : '1');
-    location.reload();
   }
 }
 
